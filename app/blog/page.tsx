@@ -1,58 +1,22 @@
+"use client";
 import Link from "next/link";
 import { CalendarIcon } from "lucide-react";
 
+import { useEffect, useState } from "react";
+
 export default function BlogPage() {
-  // Sample blog posts data - in a real app, this would come from a database or CMS
-  const posts = [
-    {
-      id: 1,
-      title: "Building a Portfolio Website with Next.js and Tailwind CSS",
-      summary:
-        "Learn how to create a modern, responsive portfolio website using Next.js 14 and Tailwind CSS with dark mode support.",
-      date: "May 10, 2023",
-      slug: "building-portfolio-website",
-    },
-    {
-      id: 2,
-      title: "Optimizing React Performance: Tips and Tricks",
-      summary:
-        "Explore various techniques to improve the performance of your React applications, from code splitting to memoization.",
-      date: "April 22, 2023",
-      slug: "optimizing-react-performance",
-    },
-    {
-      id: 3,
-      title: "Introduction to Server Components in Next.js",
-      summary:
-        "Discover how Server Components work in Next.js and how they can improve your application's performance and user experience.",
-      date: "March 15, 2023",
-      slug: "server-components-nextjs",
-    },
-    {
-      id: 4,
-      title: "Creating a Custom Hook for Dark Mode in React",
-      summary:
-        "Learn how to implement a custom React hook for managing dark mode in your applications with local storage persistence.",
-      date: "February 28, 2023",
-      slug: "custom-dark-mode-hook",
-    },
-    {
-      id: 5,
-      title: "Responsive Design Patterns with Tailwind CSS",
-      summary:
-        "Explore common responsive design patterns and how to implement them efficiently using Tailwind CSS utility classes.",
-      date: "January 17, 2023",
-      slug: "responsive-design-tailwind",
-    },
-    {
-      id: 6,
-      title: "Authentication in Next.js Applications",
-      summary:
-        "A comprehensive guide to implementing authentication in Next.js applications using NextAuth.js and various providers.",
-      date: "December 5, 2022",
-      slug: "nextjs-authentication",
-    },
-  ];
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  // const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/blog")
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data);
+        setIsLoading(false);
+      });
+  }, []);
 
   return (
     <main className="container mx-auto px-4 py-12">
@@ -65,9 +29,9 @@ export default function BlogPage() {
       </div>
 
       <div className="max-w-3xl mx-auto grid gap-8">
-        {posts.map((post) => (
+        {posts.map((post: any) => (
           <article
-            key={post.id}
+            key={post.slug}
             className="border rounded-lg p-6 bg-card hover:shadow-md transition-shadow"
           >
             <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">

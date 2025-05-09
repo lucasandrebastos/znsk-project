@@ -22,7 +22,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="font-bold text-xl">
-          Znsk<span className="text-primary">Project</span>
+          ZNSK<span className="text-primary">Project</span>
         </Link>
 
         {/* Desktop navigation */}

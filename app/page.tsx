@@ -8,9 +8,9 @@ export default function Home() {
       <section className="flex flex-col items-center justify-center min-h-[70vh] text-center">
         <div className="relative w-32 h-32 mb-8 rounded-full overflow-hidden border-4 border-primary/20">
           <Image
+            fill
             src="https://avatars.githubusercontent.com/u/179270870?v=4"
             alt="Profile"
-            fill
             className="object-cover"
             priority
           />
@@ -51,18 +51,18 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3].map((i) => (
+          {[1].map((i) => (
             <div
               key={i}
               className="border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow"
             >
               <div className="h-48 bg-muted relative">
-                <Image
+                {/* <Image
                   src={`/placeholder.svg?height=200&width=400&text=Project+${i}`}
                   alt={`Project ${i}`}
                   fill
                   className="object-cover"
-                />
+                /> */}
               </div>
               <div className="p-5">
                 <h3 className="font-semibold text-xl mb-2">Project {i}</h3>
@@ -93,7 +93,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[1, 2].map((i) => (
+          {[1].map((i) => (
             <div
               key={i}
               className="border rounded-lg p-6 bg-card hover:shadow-md transition-shadow"
