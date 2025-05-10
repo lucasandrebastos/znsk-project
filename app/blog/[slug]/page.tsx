@@ -10,9 +10,9 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  const post = await fetch(`http://localhost:3001/blog/${slug}`).then((res) =>
-    res.json()
-  );
+  const post = await fetch(
+    `https://znsk-blog-production.up.railway.app/blog/${slug}`
+  ).then((res) => res.json());
 
   return (
     <LayoutSlug>

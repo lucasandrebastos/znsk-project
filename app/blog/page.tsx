@@ -10,7 +10,7 @@ export default function BlogPage() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch("http://localhost:3001/blog")
+    fetch("https://znsk-blog-production.up.railway.app/blog")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);
