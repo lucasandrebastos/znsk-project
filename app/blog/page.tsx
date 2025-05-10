@@ -3,11 +3,11 @@ import Link from "next/link";
 import { CalendarIcon } from "lucide-react";
 
 import { useEffect, useState } from "react";
+import formatDate from "@/utils/formatDate";
 
 export default function BlogPage() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  // const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("http://localhost:3001/blog")
@@ -36,7 +36,7 @@ export default function BlogPage() {
           >
             <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
               <CalendarIcon size={16} />
-              <time dateTime={post.date}>{post.date}</time>
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
             </div>
             <h2 className="text-2xl font-semibold mb-3">
               <Link
