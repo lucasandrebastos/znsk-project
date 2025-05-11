@@ -1,7 +1,15 @@
-export default function formatDate(date: string) {
-  const newDate = date
-    .slice(0, 10)
-    .replace(/(\d{4})-(\d{2})-(\d{2})/, "$3/$2/$1");
+export function formatDate(date: string) {
+  return new Date(date).toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+  });
+}
 
-  return newDate;
+export function formatDateToBR(date: string) {
+  return new Date(date).toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 }

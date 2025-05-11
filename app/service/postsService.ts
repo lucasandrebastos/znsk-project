@@ -1,23 +1,23 @@
-import { Post } from "@/types/postType";
+import { PostType } from "@/types/postType";
 
 const URL = "https://znsk-blog-production.up.railway.app";
 
-export async function getPosts() {
+export async function getPosts(): Promise<PostType[]> {
   try {
     const res = await fetch(`${URL}/blog`);
 
-    const data: Post[] = await res.json();
+    const data: PostType[] = await res.json();
     return data;
   } catch (err) {
     throw Error(`${err}`);
   }
 }
 
-export async function getOnePostBySlug(slug: string) {
+export async function getOnePostBySlug(slug: string): Promise<PostType> {
   try {
-    const res = await fetch(`${URL}blog/${slug}`);
+    const res = await fetch(`${URL}/blog/${slug}`);
 
-    const data: Post[] = await res.json();
+    const data: PostType = await res.json();
     return data;
   } catch (err) {
     throw Error(`${err}`);

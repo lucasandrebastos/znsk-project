@@ -1,8 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { getPosts } from "./service/postsService";
+import RecentPosts from "./recentPosts";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export default function Home() {
+  const posts = getPosts();
+
   return (
     <main className="container mx-auto px-4 py-12">
       <section className="flex flex-col items-center justify-center min-h-[70vh] text-center">
@@ -82,6 +88,8 @@ export default function Home() {
         </div>
       </section>
 
+      {/* RECENT POSTS */}
+
       <section className="my-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold">Recent Posts</h2>
@@ -92,31 +100,9 @@ export default function Home() {
             View all <ArrowRight size={16} />
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[1].map((i) => (
-            <div
-              key={i}
-              className="border rounded-lg p-6 bg-card hover:shadow-md transition-shadow"
-            >
-              <div className="text-sm text-muted-foreground mb-2">
-                May {i + 1}, 2023
-              </div>
-              <h3 className="font-semibold text-xl mb-3">
-                Building Modern Web Applications with Next.js {i}
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Learn how to leverage the power of Next.js to create fast,
-                SEO-friendly web applications with a great developer experience.
-              </p>
-              <Link
-                href={`/blog/post-${i}`}
-                className="text-primary hover:underline inline-flex items-center gap-1"
-              >
-                Read more <ArrowRight size={16} />
-              </Link>
-            </div>
-          ))}
-        </div>
+        <Suspense fallback={<Loading />}>
+          <RecentPosts posts={posts} />
+        </Suspense>
       </section>
     </main>
   );
