@@ -1,6 +1,5 @@
 "use client";
-import { use, useEffect, useState } from "react";
-import { getPosts } from "./service/postsService";
+import { use } from "react";
 import { PostType } from "../types/postType";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";

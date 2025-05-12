@@ -2,9 +2,22 @@ import Image from "next/image";
 import LayoutSlug from "./layout";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
-
 import { formatDate } from "@/utils/formatDate";
 import { getOnePostBySlug } from "@/app/service/postsService";
+import { PostType } from "@/types/postType";
+
+export const revalidate = 60;
+
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const posts: PostType[] = await fetch(
+    "https://znsk-blog-production.up.railway.app/blog"
+  ).then((res) => res.json());
+  return posts.map((post) => ({
+    slug: String(post.slug),
+  }));
+}
 
 export default async function Page({
   params,

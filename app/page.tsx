@@ -6,6 +6,10 @@ import RecentPosts from "./recentPosts";
 import { Suspense } from "react";
 import Loading from "./loading";
 
+export const revalidate = 60;
+
+export const dynamicParams = true;
+
 export default function Home() {
   const posts = getPosts();
 
