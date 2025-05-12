@@ -3,6 +3,9 @@ import Loading from "./loading";
 import Posts from "./posts";
 import { getPosts } from "../service/postsService";
 
+export const revalidate = 60;
+
+export const dynamicParams = true;
 export default function BlogPage() {
   const posts = getPosts();
 

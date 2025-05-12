@@ -1,6 +1,7 @@
 import { PostType } from "@/types/postType";
 
 const URL = "https://znsk-blog-production.up.railway.app";
+// const URL = "http://localhost:3001";
 
 export async function getPosts(): Promise<PostType[]> {
   try {

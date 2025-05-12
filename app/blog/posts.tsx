@@ -1,5 +1,3 @@
-"use client";
-
 import { use } from "react";
 import { PostType } from "@/types/postType";
 import { formatDate } from "@/utils/formatDate";
