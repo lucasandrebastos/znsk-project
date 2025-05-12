@@ -1,5 +1,7 @@
 import Image from "next/image";
 import LayoutSlug from "./layout";
+import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
 
 import { formatDate } from "@/utils/formatDate";
 import { getOnePostBySlug } from "@/app/service/postsService";
@@ -27,7 +29,11 @@ export default async function Page({
         {post.summary}
       </h2>
       <p className="text-muted-foreground mb-4">{formatDate(post.date)}</p>
-      <p>{post.content}</p>
+      <div className="prose prose-neutral dark:prose-invert max-w-none prose-pre:bg-transparent prose-code:text-sm">
+        <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+          {post.content}
+        </ReactMarkdown>
+      </div>
     </LayoutSlug>
   );
 }
