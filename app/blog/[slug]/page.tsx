@@ -42,10 +42,9 @@ export default async function Page({
         {post.summary}
       </h2>
       <p className="text-muted-foreground mb-4">{formatDate(post.date)}</p>
-      <div className="prose prose-neutral dark:prose-invert max-w-none prose-pre:bg-transparent prose-code:text-sm">
-        <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
-          {post.content}
-        </ReactMarkdown>
+      {/* <div className="prose-wrapper px-4 py-6 max-w-3xl mx-auto text-lg leading-relaxed text-foreground bg-background rounded-md"> */}
+      <div className="markdown-wrapper">
+        <ReactMarkdown>{post.content}</ReactMarkdown>
       </div>
     </LayoutSlug>
   );

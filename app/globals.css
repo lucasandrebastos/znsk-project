@@ -721,3 +721,84 @@ nav a.active {
 .min-h-\[100vh\] {
   min-height: 100vh;
 }
+
+/* Estilos gerais do wrapper */
+.markdown-wrapper {
+  padding: 2rem;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Adicionar espaçamento entre os elementos */
+.markdown-wrapper p,
+.markdown-wrapper ul,
+.markdown-wrapper ol,
+.markdown-wrapper blockquote {
+  margin-bottom: 1.25rem; /* Espaço entre os parágrafos e outros blocos */
+}
+
+/* Estilo para os blocos de código (pre) */
+.markdown-wrapper pre {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-bottom: 1.5rem; /* Espaçamento abaixo do bloco de código */
+}
+
+/* Estilo para as tags de código (code) inline */
+.markdown-wrapper code {
+  background-color: var(--muted);
+  color: var(--muted-foreground);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Estilo para cabeçalhos (h1-h6) */
+.markdown-wrapper h1,
+.markdown-wrapper h2,
+.markdown-wrapper h3,
+.markdown-wrapper h4,
+.markdown-wrapper h5,
+.markdown-wrapper h6 {
+  margin-bottom: 1rem; /* Espaço abaixo dos cabeçalhos */
+  font-weight: bold;
+}
+
+/* Estilo para listas */
+.markdown-wrapper ul,
+.markdown-wrapper ol {
+  margin-bottom: 1.25rem; /* Espaçamento entre listas */
+  padding-left: 1.25rem; /* Indentação para listas */
+}
+
+.markdown-wrapper li {
+  margin-bottom: 0.5rem; /* Espaçamento entre os itens das listas */
+}
+
+/* Estilo para citações (blockquote) */
+.markdown-wrapper blockquote {
+  margin-bottom: 1.5rem; /* Espaçamento abaixo das citações */
+  padding-left: 1rem;
+  border-left: 4px solid var(--primary);
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+/* Estilo para as linhas horizontais (hr) */
+.markdown-wrapper hr {
+  margin: 2rem 0; /* Adiciona espaçamento acima e abaixo da linha */
+  border: 0;
+  border-top: 1px solid var(--border); /* Cor da linha */
+  background-color: var(
+    --border
+  ); /* Cor de fundo (pode ser ajustada conforme necessário) */
+}
