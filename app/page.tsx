@@ -36,10 +36,10 @@ export default function Home() {
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <Link
-            href="/miniapps"
+            href="/blog"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            View My Projects <ArrowRight size={16} />
+            View My Blog <ArrowRight size={16} />
           </Link>
           <Link
             href="/about"
@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mt-24 mb-12">
+      {/* <section className="mt-24 mb-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold">Featured Projects</h2>
           <Link
@@ -72,7 +72,7 @@ export default function Home() {
                   alt={`Project ${i}`}
                   fill
                   className="object-cover"
-                /> */}
+                /> 
               </div>
               <div className="p-5">
                 <h3 className="font-semibold text-xl mb-2">Project {i}</h3>
@@ -90,7 +90,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* RECENT POSTS */}
 
