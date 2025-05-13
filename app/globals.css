@@ -802,3 +802,31 @@ nav a.active {
     --border
   ); /* Cor de fundo (pode ser ajustada conforme necessário) */
 }
+
+.markdown-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.875rem;
+}
+
+.markdown-wrapper thead {
+  background-color: var(--muted);
+}
+
+.markdown-wrapper th,
+.markdown-wrapper td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.markdown-wrapper th {
+  font-weight: 600;
+  color: var(--foreground);
+  background-color: var(--muted);
+}
+
+.markdown-wrapper tr:nth-child(even) {
+  background-color: color-mix(in srgb, var(--muted) 80%, transparent);
+}

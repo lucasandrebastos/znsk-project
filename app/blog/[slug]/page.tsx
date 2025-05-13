@@ -2,9 +2,11 @@ import Image from "next/image";
 import LayoutSlug from "./layout";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/github.css";
 import { formatDate } from "@/utils/formatDate";
 import { getOnePostBySlug } from "@/app/service/postsService";
 import { PostType } from "@/types/postType";
+import remarkGfm from "remark-gfm";
 
 export const revalidate = 60;
 
@@ -44,7 +46,12 @@ export default async function Page({
       <p className="text-muted-foreground mb-4">{formatDate(post.date)}</p>
       {/* <div className="prose-wrapper px-4 py-6 max-w-3xl mx-auto text-lg leading-relaxed text-foreground bg-background rounded-md"> */}
       <div className="markdown-wrapper">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+        <ReactMarkdown
+          rehypePlugins={[rehypeHighlight]}
+          remarkPlugins={[remarkGfm]}
+        >
+          {post.content}
+        </ReactMarkdown>
       </div>
     </LayoutSlug>
   );
