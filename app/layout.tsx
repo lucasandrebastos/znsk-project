@@ -4,11 +4,12 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/app/components/navbar";
 import { ThemeProvider } from "@/app/components/theme-provider";
+import icon from "@/public/favicon.ico";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Lucas Bastos | Full Stack Developer",
+  title: "Znsk Project",
   description:
     "Personal portfolio website showcasing projects, blog posts, and more",
 };
